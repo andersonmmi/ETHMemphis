@@ -1,4 +1,4 @@
-pragma solidity ^0.4.19;
+pragma solidity ^0.4.18;
 
  contract Registration {
 
@@ -15,7 +15,7 @@ pragma solidity ^0.4.19;
       /* string attribute; */
    }
 
-   function addPerson(
+   function addGuest(
       string _firstName,
       string _lastName,
       string _email,
@@ -25,7 +25,7 @@ pragma solidity ^0.4.19;
       string _identity
       /* string _attribute */
 
-   ) returns (bool success) {
+   ) public returns (bool success) {
 
       Guest memory newGuest;
       newGuest.firstName = _firstName;
