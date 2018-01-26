@@ -1,92 +1,89 @@
-pragma solidity ^0.4.15;
+pragma solidity ^0.4.19;
 
  contract Registration {
 
    Guest[] public guests;
 
    struct Guest {
-     bytes32 firstName;
-     bytes32 lastName;
-     bytes256 email;
-     bytes256 organization;
-     bytes256 gitHubUrl;
-     bytes256 linkedInUrl;
-     bytes256 identity;
-     bytes1024 attribute;
+      string firstName;
+      string lastName;
+      string email;
+      string organization;
+      string gitHubUrl;
+      string linkedInUrl;
+      string identity;
+      /* string attribute; */
    }
 
    function addPerson(
-      bytes32 _firstName,
-      bytes32 _lastName,
-      bytes256 _email,
-      bytes256 _orginzation,
-      bytes256 _gitHubUrl,
-      bytes256 _linkedInUrl,
-      bytes256 _identity,
-      bytes1024 _attribute
-      ) returns (bool success) {
+      string _firstName,
+      string _lastName,
+      string _email,
+      string _organization,
+      string _gitHubUrl,
+      string _linkedInUrl,
+      string _identity
+      /* string _attribute */
 
-     Guest memory newGuest;
-     newGuest.firstName = _firstName;
-     newGuest.lastName = _lastName;
-     newGuest.email = _email;
-     newGuest.organization = _organization;
-     newGuest.gitHubUrl = _gitHubUrl;
-     newGuest.linkedInUrl = _linkedInUrl;
-     newGuest.identity = _identity;
-     newGuest.attribute = _attribute;
+   ) returns (bool success) {
 
-     guests.push(newGuest);
-     return true;
+      Guest memory newGuest;
+      newGuest.firstName = _firstName;
+      newGuest.lastName = _lastName;
+      newGuest.email = _email;
+      newGuest.organization = _organization;
+      newGuest.gitHubUrl = _gitHubUrl;
+      newGuest.linkedInUrl = _linkedInUrl;
+      newGuest.identity = _identity;
+      /* newGuest.attribute = _attribute; */
 
+      guests.push(newGuest);
+      return true;
    }
 
-   function getGuests() constant returns (
-      bytes32[],
-      bytes32[],
-      bytes256[],
-      bytes256[],
-      bytes256[],
-      bytes256[],
-      bytes256[],
-      bytes1024[]
-      ) {
+   /* function getGuests() constant returns (
+      string[],
+      string[],
+      string[],
+      string[],
+      string[],
+      string[],
+      string[],
+      string[]
+   ) {
+      uint length = guests.length;
 
-     uint length = guests.length;
+      string[] memory firstNames = new string[](length);
+      string[] memory lastNames = new string[](length);
+      string[] memory emails = new string[](length);
+      string[] memory organizations = new string[](length);
+      string[] memory gitHubUrls = new string[](length);
+      string[] memory linkedInUrls = new string[](length);
+      string[] memory identities = new string[](length);
+      string[] memory attributes = new string[](length);
 
-     bytes32[] memory firstNames = new bytes32[](length);
-     bytes32[] memory lastNames = new bytes32[](length);
-     bytes256[] memory emails = new bytes256[](length);
-     bytes256[] memory organizations = new bytes256[](length);
-     bytes256[] memory gitHubUrls = new bytes256[](length);
-     bytes256[] memory linkedInUrls = new bytes256[](length);
-     bytes256[] memory identities = new bytes256[](length);
-     bytes1024[] memory attributes = new bytes1024[](length);
+      for (uint i = 0; i < guests.length; i++) {
+         Guest memory currentGuest;
+         currentGuest = guests[i];
 
-
-
-     for (uint i = 0; i < guests.length; i++) {
-       Guest memory currentGuest;
-       currentGuest = guests[i];
-
-       firstNames[i] = currentGuest.firstName;
-       lastNames[i] = currentGuest.lastName;
-       emails[i] = currentGuest.email;
-       organizations[i] = currentGuest.organization;
-       gitHubUrls[i] = currentGuest.gitHubUrl;
-       linkedInUrls[i] = currentGuest.linkedInUrl;
-       identities[i] = currentGuest.identity;
-       attributes[i] = currentGuest.attribute;
-    }
-     return (
-      firstName,
-      lastName,
-      email,
-      organization,
-      gitHubUrl,
-      linkedInUrl,
-      identity,
-      attribute
+         firstNames[i] = currentGuest.firstName;
+         lastNames[i] = currentGuest.lastName;
+         emails[i] = currentGuest.email;
+         organizations[i] = currentGuest.organization;
+         gitHubUrls[i] = currentGuest.gitHubUrl;
+         linkedInUrls[i] = currentGuest.linkedInUrl;
+         identities[i] = currentGuest.identity;
+         attributes[i] = currentGuest.attribute;
+      }
+      return (
+         firstName,
+         lastName,
+         email,
+         organization,
+         gitHubUrl,
+         linkedInUrl,
+         identity,
+         attribute
       );
-   }
- }
+   } */
+}
